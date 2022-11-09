@@ -1,8 +1,4 @@
 name: Production plugins push
-env:
-  repo_name: kubeshop/monokle-saas-backend-production
-  GKE_CLUSTER_NAME: final-prod-saas
-  GKE_ZONE: us-east1-b
 
 on:
   push:
