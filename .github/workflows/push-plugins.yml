@@ -36,6 +36,7 @@ jobs:
           cd $NEWPATH
           npm install 
           npm run build
+          mv dist/{plugin,latest}.js
           find .
       - name: Login to GCP
         uses: google-github-actions/auth@v0
@@ -44,5 +45,5 @@ jobs:
       - name: 'upload-file'
         uses: 'google-github-actions/upload-cloud-storage@v0'
         with:
-          path: '${{ env.NEWPATH }}/dist/plugin.js'
-          destination: 'monokle-cloud-plugins/${{ env.NEWPATH }}/latest.js'
+          path: '${{ env.NEWPATH }}/dist/latest.js'
+          destination: 'monokle-cloud-plugins/${{ env.NEWPATH }}/'
