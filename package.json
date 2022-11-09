@@ -1,0 +1,22 @@
+{
+  "name": "monokle-community-plugins",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kubeshop/monokle-community-plugins.git"
+  },
+  "scripts": {
+    "build-catalog": "npx zx internal/build-catalog.mjs"
+  },
+  "keywords": [],
+  "author": "Kubeshop",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/kubeshop/monokle-community-plugins/issues"
+  },
+  "homepage": "https://github.com/kubeshop/monokle-community-plugins#readme",
+  "devDependencies": {
+    "zx": "7.1.1"
+  }
+}
