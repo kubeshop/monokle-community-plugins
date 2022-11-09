@@ -12,9 +12,6 @@ on:
 jobs:
   build_and_push:
     runs-on: ubuntu-latest
-#    defaults:
-#      run:
-#        working-directory: ./apiDomain/apiService
 
     strategy:
       matrix:
@@ -31,7 +28,7 @@ jobs:
 
       - name: Set env
         run: echo "RELEASE_VERSION=${GITHUB_REF#refs/*/}" >> $GITHUB_ENV
-      - name: Test
+      - name: Build app
         run: |
           NEWPATH=$(echo $RELEASE_VERSION | cut -d/ -f1-2)
           echo $NEWPATH
@@ -39,12 +36,3 @@ jobs:
           npm install 
           npm run build
           find .
-      
-
-#      - name: Build app
-#        run: |
-#          cd validation/
-#          npm install
-#          npm run build
-
-      
