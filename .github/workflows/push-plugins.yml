@@ -52,3 +52,10 @@ jobs:
         with:
           path: 'validation/catalog.json'
           destination: 'monokle-cloud-plugins/validation/'
+      - name: Slack Notification
+        uses: rtCamp/action-slack-notify@v2
+        env:
+           SLACK_COLOR: ${{ job.status }} 
+           SLACK_ICON: https://github.com/rtCamp.png?size=48
+           SLACK_TITLE: Monokle cloud plugin release - ${{ steps.latest_commit.outputs.TITLE }}
+           SLACK_WEBHOOK: ${{ secrets.RELEASE_NOTIF_SLACK_WEBHOOK }}
