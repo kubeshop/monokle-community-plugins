@@ -42,8 +42,13 @@ jobs:
         uses: google-github-actions/auth@v0
         with:
           credentials_json: ${{ secrets.GCP_CREDENTIALS }}
-      - name: 'Upload file"
+      - name: 'Upload plugin'
         uses: 'google-github-actions/upload-cloud-storage@v0'
         with:
           path: '${{ env.NEWPATH }}/dist/latest.js'
           destination: 'monokle-cloud-plugins/${{ env.NEWPATH }}/'
+      - name: 'Upload catalog.json'
+        uses: 'google-github-actions/upload-cloud-storage@v0'
+        with:
+          path: 'validation/catalog.json'
+          destination: 'monokle-cloud-plugins/validation/'
