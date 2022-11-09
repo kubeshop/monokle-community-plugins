@@ -12,9 +12,9 @@ on:
 jobs:
   build_and_push:
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: ./apiDomain/apiService
+#    defaults:
+#      run:
+#        working-directory: ./apiDomain/apiService
 
     strategy:
       matrix:
