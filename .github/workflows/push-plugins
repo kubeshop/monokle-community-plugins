@@ -1,0 +1,45 @@
+name: Production plugins push
+env:
+  repo_name: kubeshop/monokle-saas-backend-production
+  GKE_CLUSTER_NAME: final-prod-saas
+  GKE_ZONE: us-east1-b
+
+on:
+  push:
+    tags:
+    - validation/*
+
+jobs:
+  build_and_push:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./apiDomain/apiService
+
+    strategy:
+      matrix:
+        node-version: [ 16.15.1 ]
+
+    steps:
+#      - name: Checkout code
+#        uses: actions/checkout@v3
+
+#      - name: Use Node.js ${{ matrix.node-version }}
+#        uses: actions/setup-node@v3
+#        with:
+#          node-version: ${{ matrix.node-version }}
+
+      - name: Set env
+        run: echo "RELEASE_VERSION=${GITHUB_REF#refs/*/}" >> $GITHUB_ENV
+      - name: Test
+        run: |
+          echo $RELEASE_VERSION
+          echo ${{ env.RELEASE_VERSION }}
+
+#      - name: Build app
+#        run: |
+#          cd validation/
+#          npm install
+#          npm run build
+
+      
