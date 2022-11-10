@@ -1,7 +1,7 @@
 {
-  "name": "example-plugin-2",
+  "name": "annotations",
   "description": "Validates your custom rules.",
-  "author": "unknown",
+  "author": "Kubeshop",
   "license": "MIT",
   "version": "1.0.0",
   "main": "dist/plugin.js",

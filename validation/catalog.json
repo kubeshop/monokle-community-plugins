@@ -1,6 +1,3 @@
 {
-  "plugins": [
-    "example-plugin-1",
-    "example-plugin-2"
-  ]
+  "plugins": ["annotations"]
 }
