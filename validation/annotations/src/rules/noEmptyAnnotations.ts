@@ -1,7 +1,7 @@
 import { defineRule } from "@monokle/validation/custom";
 
 export const noEmptyAnnotations = defineRule({
-  id: "EXA001",
+  id: "ANN001",
   description: "Require annotations as metadata.",
   help: "Add any annotation to the Kubernetes resource.",
   validate({ resources }, { report }) {
