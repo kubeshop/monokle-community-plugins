@@ -3,7 +3,7 @@
 </p>
 
 <p align="center">
-Awesome Monokle plugins for validation and templating
+Monokle plugins to supercharge your workflows
 </p>
 
 <p align="center">
@@ -14,17 +14,22 @@ Awesome Monokle plugins for validation and templating
 
 ## Welcome to Monokle community plugins
 
-Monokle community plugins is the home for all our publicly available plugins.
+Monokle community plugins is the home for all our plugins.
+
+We currently support the following custom plugins:
+
+- TypeScript validator: add custom rules for your CRDs and more.
+
+## Table of content
+
+- [Welcome to Monokle community plugins](#welcome-to-monokle-community-plugins)
+- [Table of content](#table-of-content)
+- [Loading a community plugin](#loading-a-community-plugin)
+  - [Using the Monokle Configuration file](#using-the-monokle-configuration-file)
+  - [Using the user interface](#using-the-user-interface)
+- [Bootstrapping your first plugin](#bootstrapping-your-first-plugin)
 
 ## Loading a community plugin
-
-### Using the user interface
-
-You can enter it within Monokle Cloud and Desktop's validation pane.
-
-Afterwards
-you can get an overview of all the rules within the user interface and explore then
-in real-time.
 
 ### Using the Monokle Configuration file
 
@@ -40,37 +45,49 @@ rules:
   my-custom-plugin/my-custom-rule: "err"
 ```
 
-Or
+note: currently this always requires network connectivity to download the plugins. Please consider reaching out for us if you have use cases where you need the validators to be cached for offline usage.
+
+### Using the user interface
+
+You can browse to Monokle Cloud's validation pane and add any community plugin with the selector.
+
+Afterwards you can view all rules within the application and explore their impact on your resources in real-time by toggling them.
 
 ## Bootstrapping your first plugin
 
 > Prerequisites: we recommend to use NPM >v7 and NodeJs LTS.
 
 All community plugins are located within this repository.
-
 The reason is that safety of our users is important to us.
 Validation plugins can execute arbitrary code.
 For this reason we'll manually review third-party code running on your browser and servers.
 
 **1. Fork the repository**
 
-**2. Skaffold plugin directory**
+**2. Skaffold plugin**
 
-You can now generate a plugin with our easy to skaffolding tool.
-It will prompt you for the name and plugin type and variant, .
+You can use our skaffolding tool to get a template of the plugin.
+
+Execute the following command and it will interactively guide you through creating your plugin.
 
 ```
-npm create monokle-plugin
+npm create monokle-plugin@latest
 ```
 
 **3. Develop your plugin**
 
-The skaffolding tool gives instructions on how to continue.
+The skaffolding tool gives instructions on how to get started.
 
-You can also check the README additional instructions for that type of plugin.
+For validation, simply enable your plugin's development server. Hot Module Replacement will show your latest code directly in the browser. You can also check the plugin's README to learn how you can generate types for your CRDs and more.
 
 **3. Create a pull request**
 
 We'll review the code as soon as possible.
 
 It will afterwards be published on plugins.monokle.com and become available for everyone to load.
+
+**4. Enjoy the impact of your plugin on the community**
+
+Your done! The plugin will now be available for everyone to use.
+
+Thank you for your time to make Kubernetes easier to use.
