@@ -1,4 +1,4 @@
-import { definePlugin } from "@monokle/validation/custom";
+import { definePlugin } from "@monokle/plugin-toolkit";
 import { noElevatedProcess } from "./rules/1-noElevatedProcess.js";
 import { noAutomountServiceAccountToken } from "./rules/10-noAutomountServiceAccountToken.js";
 import { noLowUserId } from "./rules/2-noLowUserId.js";

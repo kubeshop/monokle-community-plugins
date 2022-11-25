@@ -1,12 +1,7 @@
 import { defineRule } from "@monokle/validation/custom";
-import {
-  ClusterRole,
-  isClusterRole,
-} from "../schemas/__generated__/clusterrole.rbac.authorization.k8s.io.v1.js";
-import {
-  isRole,
-  Role,
-} from "../schemas/__generated__/role.rbac.authorization.k8s.io.v1.js";
+import { Role, ClusterRole } from "kubernetes-types/rbac/v1.js";
+import { isClusterRole } from "../schemas/__generated__/clusterrole.rbac.authorization.k8s.io.v1.js";
+import { isRole } from "../schemas/__generated__/role.rbac.authorization.k8s.io.v1.js";
 
 export const noPodCreate = defineRule({
   id: 7,
