@@ -103,7 +103,7 @@ Report a problem simply by passing back the resource to our rule API's `report`.
 By giving a YAML path to the resource, Monokle can show you the error in real-time
 in the editor as seen below:
 
-![example TypeScript plugin](/docs/example-ts-plugin.png)
+![example TypeScript plugin](/docs/images/example-ts-plugin.png)
 
 ## Bootstrapping your first plugin
 
