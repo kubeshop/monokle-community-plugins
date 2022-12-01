@@ -24,14 +24,16 @@ We currently support the following custom plugins:
 
 - [Welcome to Monokle community plugins](#welcome-to-monokle-community-plugins)
 - [Table of content](#table-of-content)
-- [Loading a community plugin](#loading-a-community-plugin)
-  - [Using the Monokle Configuration file](#using-the-monokle-configuration-file)
-  - [Using the user interface](#using-the-user-interface)
+- [Installing community plugins](#installing-community-plugins)
+  - [Through the Monokle Configuration file](#through-the-monokle-configuration-file)
+  - [Through the user interface](#through-the-user-interface)
+- [Plugins](#plugins)
+  - [TypeScript validator](#typescript-validator)
 - [Bootstrapping your first plugin](#bootstrapping-your-first-plugin)
 
-## Loading a community plugin
+## Installing community plugins
 
-### Using the Monokle Configuration file
+### Through the Monokle Configuration file
 
 Simply add the name of the validator to your Monokle Configuration file.
 
@@ -47,11 +49,61 @@ rules:
 
 note: currently this always requires network connectivity to download the plugins. Please consider reaching out for us if you have use cases where you need the validators to be cached for offline usage.
 
-### Using the user interface
+### Through the user interface
 
-You can browse to Monokle Cloud's validation pane and add any community plugin with the selector.
+You can [visit Monokle Cloud](https://app.monokle.com); a free web application where you can explore community plugins directly on public GitHub repositories.
 
-Afterwards you can view all rules within the application and explore their impact on your resources in real-time by toggling them.
+Simply go the validation activity in the left sidebar and you can select any community plugin within the dropdown. Afterwards all rules and descriptions will appear in your application, toggle them to see their impact on your resources in real-time.
+
+## Plugins
+
+### TypeScript validator
+
+Example plugin:
+
+```typescript
+export const noAdminApi = defineRule({
+  id: 3,
+  description: "Disallow the admin API for Prometheus instances.",
+  help: "Do not set enabledAdminAPI to true.",
+  validate({ resources }, { report }) {
+    resources.filter(isPrometheus).forEach((prometheus) => {
+      const valid = prometheus.spec.enableAdminAPI !== true;
+      if (valid) return;
+      report(prometheus, { path: "spec.enableAdminAPI" });
+    });
+  },
+});
+
+export default definePlugin({
+  id: "YFP",
+  name: "Your first plugin",
+  description: "Welcome to your first plugin!",
+  rules: { noAdminApi },
+});
+```
+
+**1. Target resources with type-guards**
+
+```typescript
+const deployment = resources.find(isDeployment);
+const prometheus = resources.find(isPrometheus);
+```
+
+Our Monokle plugin toolkit will generate these for both known kinds and any custom resource definition you might have. Afterwards, resources becomes fully-typed and give IntelliSense
+features like autocomplete, build-in documentation and typo prevention.
+
+**2. Report a problem**
+
+```typescript
+report(prometheus, { path: "spec.enableAdminAPI" });
+```
+
+Report a problem simply by passing back the resource to our rule API's `report`.
+By giving a YAML path to the resource, Monokle can show you the error in real-time
+in the editor as seen below:
+
+![example TypeScript plugin](/docs/example-ts-plugin.png)
 
 ## Bootstrapping your first plugin
 
