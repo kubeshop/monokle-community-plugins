@@ -3,3 +3,4 @@
 **/__generated__/**
 **/build/**
 **/dist/**
+.idea
