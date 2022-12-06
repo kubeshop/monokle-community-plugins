@@ -1,6 +1,6 @@
 import { definePlugin } from "@monokle/plugin-toolkit";
 import { noEmptyAnnotations } from "./rules/noEmptyAnnotations.js";
-import { noPortMismatch } from "./rules/noPortMismatch.js";
+import { noPrometheusAdmin } from "./rules/noPrometheusAdmin.js";
 
 export default definePlugin({
   id: "ANN",
@@ -10,6 +10,6 @@ export default definePlugin({
     "An example custom plugin which checks existence of annotations.",
   rules: {
     noEmptyAnnotations,
-    noPortMismatch,
+    noPrometheusAdmin,
   },
 });
