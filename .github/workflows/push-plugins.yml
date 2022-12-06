@@ -55,3 +55,9 @@ jobs:
            SLACK_ICON: https://github.com/rtCamp.png?size=48
            SLACK_TITLE: Monokle cloud plugin release - ${{ steps.latest_commit.outputs.TITLE }}
            SLACK_WEBHOOK: ${{ secrets.RELEASE_NOTIF_SLACK_WEBHOOK }}
+      - name: Purge cache
+        uses: aorfanos/cloudflare-purge-action@v1.0.3
+        env:
+          CF_TOKEN: ${{ secrets.CF_TOKEN }}
+          CF_ZONE_NAME: monokle.com
+          CF_PURGE_URLS: '["https://plugins.monokle.com/validation/annotations/latest.js"]'
