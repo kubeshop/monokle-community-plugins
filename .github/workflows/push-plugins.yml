@@ -5,6 +5,9 @@ on:
     tags:
     - 'validation/**'
 
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
 jobs:
   build_and_push:
     runs-on: ubuntu-latest
@@ -51,7 +54,7 @@ jobs:
       - name: Slack Notification
         uses: rtCamp/action-slack-notify@v2
         env:
-           SLACK_COLOR: ${{ job.status }} 
+           SLACK_COLOR: ${{ job.status }}
            SLACK_ICON: https://github.com/rtCamp.png?size=48
            SLACK_TITLE: Monokle cloud plugin release - ${{ steps.latest_commit.outputs.TITLE }}
            SLACK_WEBHOOK: ${{ secrets.RELEASE_NOTIF_SLACK_WEBHOOK }}
