@@ -1,3 +1,7 @@
 {
-  "plugins": ["annotations", "nsa"]
+  "plugins": [
+    "annotations",
+    "argo",
+    "nsa"
+  ]
 }
