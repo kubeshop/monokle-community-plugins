@@ -60,4 +60,4 @@ jobs:
         env:
           CF_TOKEN: ${{ secrets.CF_TOKEN }}
           CF_ZONE_NAME: monokle.com
-          CF_PURGE_URLS: '["https://plugins.monokle.com/validation/annotations/latest.js"]'
+          CF_PURGE_URLS: '["https://plugins.monokle.com/validation/annotations/latest.js", "https://plugins.monokle.com/validation/catalog.json"]'
