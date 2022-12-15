@@ -3,7 +3,7 @@
   "author": "olensmar",
   "description": "Validates resources against ArgoCD-related rules.",
   "license": "MIT",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "main": "dist/plugin.js",
   "type": "module",
   "scripts": {

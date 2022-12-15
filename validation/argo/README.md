@@ -2,9 +2,10 @@
 
 This plugin currently has the following rules
 
-| ruleId           | description                                                                     |
-|------------------|---------------------------------------------------------------------------------|
+| ruleId             | description                                                                                                                                                                     |
+| ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `argo-config-maps` | Check that ArgoCD ConfigMaps have required label - see [ArgoCD Documentation](https://argo-cd.readthedocs.io/en/stable/operator-manual/declarative-setup/#atomic-configuration) |
+| `app-destination`  | Argo Application's destination are mutually exclusive.                                                                                                                          |
 
 Use with the Monokle CLI by adding this plugin to your `monokle.validation.yaml` file as follows:
 
@@ -14,6 +15,7 @@ plugins:
   ...
 rules:
   argo/argo-config-maps: "err"
+  argo/app-destination: "err"
   ...
 ```
 
