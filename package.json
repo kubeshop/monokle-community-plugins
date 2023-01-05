@@ -7,7 +7,8 @@
     "url": "git+https://github.com/kubeshop/monokle-community-plugins.git"
   },
   "scripts": {
-    "build-catalog": "npx zx internal/build-catalog.mjs"
+    "build-catalog": "npx zx internal/build-catalog.mjs",
+    "build-docs": "npx zx internal/build-plugin-docs.mjs"
   },
   "keywords": [],
   "author": "Kubeshop",
@@ -17,6 +18,8 @@
   },
   "homepage": "https://github.com/kubeshop/monokle-community-plugins#readme",
   "devDependencies": {
-    "zx": "7.1.1"
+    "zx": "7.1.1",
+    "mustache": "4.2.0",
+    "change-case": "4.1.2"
   }
 }
