@@ -19,6 +19,8 @@ Monokle community plugins contains all our public validation plugins.
 Plugins are written in Typescript (see example below) and can currently be used in the 
 [Monokle CLI](https://github.com/kubeshop/monokle-core/tree/main/packages/cli) and Monokle Cloud (see below).
 
+Go to [plugins.md](plugins.md) for a list of currently available plugins.
+
 ## Using community plugins
 
 ### With the Monokle CLI
