@@ -1,6 +1,11 @@
 #!/usr/bin/env zx
 // @ts-nocheck
 
+/**
+ Run this script with "npm run build-docs" to ensure the plugins.md file in the repository root is
+ up-to-date with all plugins
+*/
+
 import path from "path";
 import Mustache from "mustache";
 import {paramCase} from "change-case";
@@ -43,6 +48,7 @@ function toRulesArray(plugin) {
     return Object.entries(plugin.rules).map(([name, r]) => {
         return {
             name: paramCase(name),
+            pluginName: plugin.name,
             description: r.description || r.fullDescription || "- missing -"
         };
     });
