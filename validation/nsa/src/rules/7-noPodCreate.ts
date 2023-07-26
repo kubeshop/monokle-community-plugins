@@ -6,13 +6,13 @@ import { isRole } from "../schemas/__generated__/role.rbac.authorization.k8s.io.
 export const noPodCreate = defineRule({
   id: 7,
   description: "Disallow permissions to create pods",
-  help: "Do not include 'create' in 'spec.rules[x].verbs",
+  help: "Do not include 'create' in 'rules[x].verbs",
   validate({ resources }, { report }) {
     resources.filter(isTarget).forEach((role, index) => {
       role.rules?.forEach((rule) => {
         const isValid = rule.verbs?.includes("create");
         if (isValid) return;
-        report(role, { path: `spec.rules.${index}.verbs` });
+        report(role, { path: `rules.${index}.verbs` });
       });
     });
   },
